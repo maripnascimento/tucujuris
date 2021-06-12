@@ -94,7 +94,7 @@ def get_basic_info(data):
 # number = input("Qual processo vc quer consultar?") 
 number = '0002120-57.2020.8.03.0001'
 
-print (get_lawsuit(number))
+
 
 
 
