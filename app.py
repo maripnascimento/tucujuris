@@ -12,7 +12,9 @@ def index():
 @app.route('/result', methods=['POST'])
 def result():
 	number = request.form['number']
-	return get_lawsuit(number)
+	lawsuit = get_lawsuit(number)
+	return render_template('result.html',lawsuit=lawsuit)
+
 
 if __name__ == '__main__':
 	app.run()	

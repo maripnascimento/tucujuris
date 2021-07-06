@@ -4,7 +4,7 @@ def get_lawsuit(lawsuit_number):
 	params = {
 	'id':'',
 	'numero_unico': lawsuit_number,
-	'captcha':'nada'
+	'captcha':''
 	}
 	
 	print('fazendo requisicao cabecalho processo')
@@ -51,7 +51,7 @@ def get_related_people(data):
 	related_people = []
 	for people in data:
 		part = {
-		'nome':people['nomeparte'],
+		'name':people['nomeparte'],
 		'role':people['tipoparte'],
 		'lawyer':people['nome_adv']
 		}
@@ -66,9 +66,9 @@ def get_activity_list(data):
 	activity_list = []
 	for activity in data:
 		moviment = {
-		'titulo':activity['descricao_pa'],
-		'complemento':activity['complemento_pa'],
-		'data':activity['dt_andamento_pa']
+		'title':activity['descricao_pa'],
+		'text':activity['complemento_pa'],
+		'date':activity['dt_andamento_pa']
 		}
 		activity_list.append(moviment)
 	
@@ -79,13 +79,14 @@ def get_basic_info(data):
 	print ('extraindo cabecalho')
 
 	basic_info = {
+	'number':'',
 	'class':data['classe'],
-	'rito':data['rito'],
-	'comarca':data['comarca'],
-	'assunto':data['cnj_assunto'],
-	'valor_causa':data['valor_causa'],
-	'distribuicao':data['dt_distribuicao'],
-	'lotacao':data['lotacao']
+	'kind':data['rito'],
+	'city':data['comarca'],
+	'subject':data['cnj_assunto'],
+	'value':data['valor_causa'],
+	'date':data['dt_distribuicao'],
+	'court_section':data['lotacao']
 	}
 
 	return basic_info
