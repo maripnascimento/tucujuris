@@ -13,7 +13,7 @@ def get_lawsuit(lawsuit_number):
 	data = site.json()
 	# import pdb; pdb.set_trace()
 	if not data['dados']['autos']:
-		return 'o processo nao foi encontrado'
+		return 
 	lawsuit_id = data['dados']['autos'][0]['id']
 
 	
