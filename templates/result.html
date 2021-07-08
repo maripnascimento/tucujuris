@@ -9,16 +9,20 @@
 		<br>	
 	</div>
 	<div>
+		{% block list %}
 		<h2><u>INFORMACOES GERAIS</u></h2>
 		<p><b>Classe: {{lawsuit['basic_info']['class']}}</p></b>
 		<p><b>Rito: {{lawsuit['basic_info']['kind']}}</p></b>
 		<p><b>Comarca: {{lawsuit['basic_info']['city']}}</p></b>
-		<p><b>Assunto: {{lawsuit['basic_info']['subject']}}</p></b>
+		<tr>
+		<td><b>Assunto:</b></td>
+		{% for subject in lawsuit['basic_info']['subject'] %}
+		<td>{{subject['descricao']}}</td>
+		{% endfor %}
 		<p><b>Valor da causa: {{lawsuit['basic_info']['value']}}</p></b>
 		<p><b>Distribuicao: {{lawsuit['basic_info']['date']}}</p></b>
 		<p><b>Lotacao: {{lawsuit['basic_info']['court_section']}}</p></b>
 	</div>
-	{% block list %}
 		<h2><u>PARTES</u></h2>
 		{% for people in lawsuit['related_people'] %}
 			<tr>
