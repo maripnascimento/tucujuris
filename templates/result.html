@@ -9,31 +9,32 @@
 		<br>	
 	</div>
 	<div>
-		<h2>INFORMACOES GERAIS</h2>
-		<p><b>Classe: {{lawsuit['basicinfo']['class']}}</p></b>
-		<p><b>Rito: {{lawsuit['basicinfo']['kind']}}</p></b>
-		<p><b>Comarca: {{lawsuit['basicinfo']['city']}}</p></b>
-		<p><b>Assunto: {{lawsuit['basicinfo']['subject']}}</p></b>
-		<p><b>Valor da causa: {{lawsuit['basicinfo']['value']}}</p></b>
-		<p><b>Distribuicao: {{lawsuit['basicinfo']['date']}}</p></b>
-		<p><b>Lotacao: {{lawsuit['basicinfo']['court_section']}}</p></b>
+		<h2><u>INFORMACOES GERAIS</u></h2>
+		<p><b>Classe: {{lawsuit['basic_info']['class']}}</p></b>
+		<p><b>Rito: {{lawsuit['basic_info']['kind']}}</p></b>
+		<p><b>Comarca: {{lawsuit['basic_info']['city']}}</p></b>
+		<p><b>Assunto: {{lawsuit['basic_info']['subject']}}</p></b>
+		<p><b>Valor da causa: {{lawsuit['basic_info']['value']}}</p></b>
+		<p><b>Distribuicao: {{lawsuit['basic_info']['date']}}</p></b>
+		<p><b>Lotacao: {{lawsuit['basic_info']['court_section']}}</p></b>
 	</div>
 	{% block list %}
-		<h2>PARTES</h2>
-		{% for people in lawsuite['related_peple'] %}
+		<h2><u>PARTES</u></h2>
+		{% for people in lawsuit['related_people'] %}
 			<tr>
-				<td>Tipo da parte: people['role']</td>
-				<td>Nome: people['name']</td>
+				<td><b>{{people['role']}} - </b></td>
+				<td>{{people['name']}}</td>
 				<br>
-				<td>Advogado(a):people['lawyer']</td>
+				<td><b>Advogado(a):</b>{{people['lawyer']}}</td>
 				<br>
 				<br>
 			</tr>	
-		<h2>ANDAMENTOS</h2>
+		{% endfor %}	
+		<h2><u>ANDAMENTOS</u></h2>
 		{% for activity in lawsuit['activity_list'] %}
 			<div>
 				<p><b>Data: {{activity['date']}}</p></b>
-				<p><b>Titulo: {{activity['title'}}</p></b>
+				<p><b>Titulo: {{activity['title']}}</p></b>
 				<p><b>Complemento: {{activity['text']}}</p></b>
 			</div>		
 		{% endfor %}
@@ -43,6 +44,6 @@
 
 #abertura da tag eh sempre alinhada com o fechamento.
 #o simbolo de porcentagem no html significa que vai comecar um
-codigo python
-Cada <p> eh uma linha nova
-Cada <tr> eh uma unica linha
+#codigo python
+#Cada <p> eh uma linha nova
+#Cada <tr> eh uma unica linha
