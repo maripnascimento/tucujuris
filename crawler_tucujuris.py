@@ -75,7 +75,7 @@ def get_activity_list(data):
 
 def get_basic_info(data):	
 
-	import pdb; pdb.set_trace()
+	#import pdb; pdb.set_trace()
 
 	print ('extraindo cabecalho')
 
