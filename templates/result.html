@@ -1,6 +1,6 @@
 <html>
 	<head> 
-		<title>crawler tucujuris</title>
+		<title>Busca Tucujuris</title>
 	</head>
 	<div>
 		<form method='get'action='/'>
@@ -10,7 +10,7 @@
 	</div>
 	<div>
 		{% block list %}
-		<h2><u>INFORMACOES GERAIS</u></h2>
+		<h2><u>Informações Gerais</u></h2>
 		<p><b>Classe:</b>b{{lawsuit['basic_info']['class']}}</p>
 		<p><b>Rito:</b>{{lawsuit['basic_info']['kind']}}</p>
 		<p><b>Comarca:</b>{{lawsuit['basic_info']['city']}}</p>
@@ -21,10 +21,10 @@
 			{% endfor %}
 		</tr>
 		<p><b>Valor da causa:</b> R${{lawsuit['basic_info']['value']}}.00</p>
-		<p><b>Distribuicao:</b> {{lawsuit['basic_info']['date']}}</p>
-		<p><b>Lotacao:</b> {{lawsuit['basic_info']['court_section']}}</p>
+		<p><b>Distribuição:</b> {{lawsuit['basic_info']['date']}}</p>
+		<p><b>Lotação:</b> {{lawsuit['basic_info']['court_section']}}</p>
 	</div>
-		<h2><u>PARTES</u></h2>
+		<h2><u>Partes</u></h2>
 		{% for people in lawsuit['related_people'] %}
 			<tr>
 				<td><b>{{people['role']}}: </b></td>
@@ -35,7 +35,7 @@
 				<br>
 			</tr>	
 		{% endfor %}	
-		<h2><u>ANDAMENTOS</u></h2>
+		<h2><u>Andamentos</u></h2>
 		{% for activity in lawsuit['activity_list'] %}
 			<div>
 				<p><b>Data:</b> {{activity['date']}}</p>
@@ -48,8 +48,4 @@
 
 </html>
 
-#abertura da tag eh sempre alinhada com o fechamento.
-#o simbolo de porcentagem no html significa que vai comecar um
-#codigo python
-#Cada <p> eh uma linha nova
-#Cada <tr> eh uma unica linha
+
