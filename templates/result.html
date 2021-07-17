@@ -11,16 +11,16 @@
 	<div>
 		{% block list %}
 		<h2><u>Informações Gerais</u></h2>
-		<p><b>Classe:</b>b{{lawsuit['basic_info']['class']}}</p>
-		<p><b>Rito:</b>{{lawsuit['basic_info']['kind']}}</p>
-		<p><b>Comarca:</b>{{lawsuit['basic_info']['city']}}</p>
+		<p><b>Classe:</b> {{lawsuit['basic_info']['class']}}</p>
+		<p><b>Rito:</b> {{lawsuit['basic_info']['kind']}}</p>
+		<p><b>Comarca: </b>{{lawsuit['basic_info']['city']}}</p>
 		<tr>
 			<td><b>Assunto:</b></td>
 			{% for subject in lawsuit['basic_info']['subject'] %}
 				<td>{{subject['descricao']}} / </td>
 			{% endfor %}
 		</tr>
-		<p><b>Valor da causa:</b> R${{lawsuit['basic_info']['value']}}.00</p>
+		<p><b>Valor da causa:</b> R$ {{lawsuit['basic_info']['value']}}.00</p>
 		<p><b>Distribuição:</b> {{lawsuit['basic_info']['date']}}</p>
 		<p><b>Lotação:</b> {{lawsuit['basic_info']['court_section']}}</p>
 	</div>
