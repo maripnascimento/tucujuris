@@ -11,14 +11,13 @@ def get_lawsuit(lawsuit_number):
 	
 	site = requests.get("http://tucujuris.tjap.jus.br/api/publico/buscar-autos-consulta-publica",params=params,verify=False)
 	data = site.json()
-	# import pdb; pdb.set_trace()
+	
 	if not data['dados']['autos']:
 		return 
-	lawsuit_id = data['dados']['autos'][0]['id']
-
+	
 	
 	params_lawsuit = {
-	'autos_id': lawsuit_id,
+	'autos_id': data['dados']['autos'][0]['id'],
 	'chave_consumo':''
 	}
 	
@@ -76,10 +75,12 @@ def get_activity_list(data):
 
 def get_basic_info(data):	
 
+	import pdb; pdb.set_trace()
+
 	print ('extraindo cabecalho')
 
 	basic_info = {
-	'number':'',
+	'number':data['numero_cnj'],
 	'class':data['classe'],
 	'kind':data['rito'],
 	'city':data['comarca'],
@@ -92,10 +93,6 @@ def get_basic_info(data):
 	return basic_info
 	
 
-# number = input("Qual processo vc quer consultar?") 
-number = '0002120-57.2020.8.03.0001'
-
-
-
+#number = '0002120-57.2020.8.03.0001'
 
 

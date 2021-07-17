@@ -11,25 +11,26 @@
 	<div>
 		{% block list %}
 		<h2><u>INFORMACOES GERAIS</u></h2>
-		<p><b>Classe: {{lawsuit['basic_info']['class']}}</p></b>
-		<p><b>Rito: {{lawsuit['basic_info']['kind']}}</p></b>
-		<p><b>Comarca: {{lawsuit['basic_info']['city']}}</p></b>
+		<p><b>Classe:</b>b{{lawsuit['basic_info']['class']}}</p>
+		<p><b>Rito:</b>{{lawsuit['basic_info']['kind']}}</p>
+		<p><b>Comarca:</b>{{lawsuit['basic_info']['city']}}</p>
 		<tr>
-		<td><b>Assunto:</b></td>
-		{% for subject in lawsuit['basic_info']['subject'] %}
-		<td>{{subject['descricao']}}</td>
-		{% endfor %}
-		<p><b>Valor da causa: {{lawsuit['basic_info']['value']}}</p></b>
-		<p><b>Distribuicao: {{lawsuit['basic_info']['date']}}</p></b>
-		<p><b>Lotacao: {{lawsuit['basic_info']['court_section']}}</p></b>
+			<td><b>Assunto:</b></td>
+			{% for subject in lawsuit['basic_info']['subject'] %}
+				<td>{{subject['descricao']}} / </td>
+			{% endfor %}
+		</tr>
+		<p><b>Valor da causa:</b> R${{lawsuit['basic_info']['value']}}.00</p>
+		<p><b>Distribuicao:</b> {{lawsuit['basic_info']['date']}}</p>
+		<p><b>Lotacao:</b> {{lawsuit['basic_info']['court_section']}}</p>
 	</div>
 		<h2><u>PARTES</u></h2>
 		{% for people in lawsuit['related_people'] %}
 			<tr>
-				<td><b>{{people['role']}} - </b></td>
+				<td><b>{{people['role']}}: </b></td>
 				<td>{{people['name']}}</td>
 				<br>
-				<td><b>Advogado(a):</b>{{people['lawyer']}}</td>
+				<td><b>Advogado(a): </b>{{people['lawyer']}}</td>
 				<br>
 				<br>
 			</tr>	
@@ -37,9 +38,10 @@
 		<h2><u>ANDAMENTOS</u></h2>
 		{% for activity in lawsuit['activity_list'] %}
 			<div>
-				<p><b>Data: {{activity['date']}}</p></b>
-				<p><b>Titulo: {{activity['title']}}</p></b>
-				<p><b>Complemento: {{activity['text']}}</p></b>
+				<p><b>Data:</b> {{activity['date']}}</p>
+				<p><b>{{activity['title']}}</p></b>
+				<p>{{activity['text']}}</p>
+				<br>
 			</div>		
 		{% endfor %}
 	{% endblock %}
