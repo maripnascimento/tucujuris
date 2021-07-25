@@ -17,6 +17,9 @@ def result():
 
 	return render_template('result.html',lawsuit=lawsuit)
 
+@app.route('/row/<number_id>', methods=['get'])	
+def row_value(number_id):
+	return get_lawsuit(number_id)
 
 def get_lawsuit(lawsuit_number):
 	params = {
@@ -98,6 +101,7 @@ def get_basic_info(data):
 	print ('extraindo cabecalho')
 
 	basic_info = {
+	'degree': data['instancia'],
 	'number':data['numero_cnj'],
 	'class':data['classe'],
 	'kind':data['rito'],
