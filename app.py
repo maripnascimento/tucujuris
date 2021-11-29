@@ -18,8 +18,8 @@ def result():
 
 	return render_template('result.html',lawsuit=lawsuit)
 
-@app.route('/row/<number_id>', methods=['get'])	
-def row_value(number_id):
+@app.route('/raw/<number_id>', methods=['get'])	
+def raw_value(number_id):
 	return get_lawsuit(number_id)
 
 
